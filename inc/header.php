@@ -20,8 +20,8 @@ if (isset($_SESSION['username'])) {
     <div class="az-header">
       <div class="container">
         <div class="az-header-left">
-          <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
-          <a href="index.html"><img src='./img/brand-logo.png' width='80px'></a>
+          <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span>s</a>
+          <a href="index.php"><img src='./img/brand-logo.png' width='80px'></a>
         </div><!-- az-header-left -->
         <div class="az-header-menu">
           <div class="az-header-menu-header">
@@ -29,20 +29,29 @@ if (isset($_SESSION['username'])) {
             <a href="" class="close">&times;</a>
           </div><!-- az-header-menu-header -->
           <ul class="nav">
-            <li class="nav-item active show">
-              <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+            <li class="nav-item">
+              <a href="index.php" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> DM Manager</a>
+              <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Create+</a>
               <nav class="az-menu-sub">
-                <a href="#" class="nav-link"></a>
+                <a href="dm-manager.php" class="nav-link">DM</a>
+                <a href="add-design-number.php" class="nav-link">Design Number</a>
+                <a href="#" class="nav-link">Order Form</a>
+                <a href="#" class="nav-link">Masters</a>
               </nav>
             </li>
             <li class="nav-item">
-              <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Masters</a>
+              <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Explore</a>
+              <nav class="az-menu-sub">
+                <a href="dm.php" class="nav-link">DM</a>
+                <a href="design-numbers.php" class="nav-link">Design Numbers</a>
+                <a href="#" class="nav-link">Order Form</a>
+                <a href="#" class="nav-link">Master</a>
+              </nav>
             </li>
             <li class="nav-item">
-              <a href="chart-chartjs.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Settings</a>
+              <a href="settings.php" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Config</a>
             </li>
           </ul>
         </div><!-- az-header-menu -->
