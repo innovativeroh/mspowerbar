@@ -17,8 +17,8 @@
     <title>MS Power Bar - Dashboard (Vendor Name)</title>
 
     <?php include_once('./inc/header.php'); ?>
-    <?php include_once('./inc/sidebar.php'); ?>
-
+    <div class="az-content az-content-dashboard">
+      <div class="container">
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
           <div class="az-content-breadcrumb">
             <span>Home</span>
@@ -31,7 +31,26 @@
 
           <div class="row row-sm mg-b-20">
             <div class="col-lg-4">
-              <p class="mg-b-10">SELECT SIZE</p>
+              <p class="mg-b-10">SELECT DESIGN NUMBER</p>
+              <select class="form-control select2" onchange="selector()">
+                <option label="Choose one"></option>
+                <?php
+                  $sql = "SELECT DISTINCT `assigned_number` FROM `design_numbers` WHERE `connection`='$global_id' and `delete`='0'";
+                  $query = mysqli_query($conn, $sql);
+                  $count = mysqli_num_rows($query);
+                  while($row = mysqli_fetch_assoc($query)) {
+                    $assigned_number = $row['assigned_number'];
+                    echo "<option value='$assigned_number'>$assigned_number</option>";
+                  }
+                ?>
+              </select>
+            </div><!-- col -->
+          </div>
+
+          <div class="row row-sm mg-b-20">
+            <div class="col-lg-4">
+            <p class="mg-b-10">AVAILABLE SIZE'S</p>
+            <div id='demo'>The Data</div>
               <select class="form-control select2" multiple="multiple">
                 <option value="Firefox">20-22</option>
                 <option value="Chrome">20-24</option>
@@ -43,11 +62,6 @@
             <div class="col-lg-4">
               <p class="mg-b-10">MASTERS</p>
               <select class="form-control select2" multiple="multiple" disabled>
-                <option value="Firefox" selected>Rohan</option>
-                <option value="Chrome">Darshan</option>
-                <option value="Safari">Anil</option>
-                <option value="Opera">Deepak</option>
-                <option value="Internet Explorer">Rajesh</option>
               </select>
             </div><!-- col -->
             <div class="col-lg-4">
@@ -61,7 +75,7 @@
               </select>
             </div><!-- col -->
           </div><!-- row -->
-
+          
           <div class="row row-sm mg-t-20">
             <div class="col-lg">
               <textarea rows="3" class="form-control" placeholder="Remarks" style='resize: none; margin-bottom: 20px;'></textarea>
@@ -73,5 +87,16 @@
             <div class="col-sm-12 col-md-3"><button class="btn btn-az-primary btn-block">Generate</button></div>
           </div>
           <?php include_once('./inc/footer.php'); ?>
+          <script>
+              function selector() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "ajax-data.php");
+  xhttp.send();
+}
+
+            </script>
   </body>
 </html>

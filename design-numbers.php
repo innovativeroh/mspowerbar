@@ -48,6 +48,7 @@
               $assigned_no = $rows['assigned_number'];
               $item_name = $rows['item_name'];
               $rate = $rows['rate'];
+              $qr_image = $rows['qr_code'];
               $connection = $rows['connection'];
               $insert_date = $rows['insert_date'];
               $item_image = $rows['item_image'];
@@ -64,7 +65,8 @@
 <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
             <div class="dropdown-menu tx-13" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="./data/<?=$item_image?>" target="_blank">View Item</a>
+            <a class="dropdown-item" href="./<?=$qr_image?>" target="_blank">View QR</a>  
+            <a class="dropdown-item" href="./data/<?=$item_image?>" target="_blank">View Item</a>
             <a class="dropdown-item" href="edit-design.php?id=<?=$id?>">Edit</a>
               <a class="dropdown-item" href="delete-design.php?id=<?=$id?>">Delete</a>
             </div>
