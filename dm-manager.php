@@ -37,7 +37,7 @@
             <span>Home</span>
             <span>DM Manager</span>
           </div>
-          <h2 class="az-content-title">DM Manager</h2>
+          <h2 class="az-content-title">DM Manager Step 1-2</h2>
           <hr class="mg-y-10">
           <div class="az-content-label mg-b-5"><span class="tx-sserif">CREATION</span> PANEL</div>
           <p class="mg-b-20">Panel is important for you select all the information and create DM as per the requirement...</p>
