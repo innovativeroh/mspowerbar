@@ -12,6 +12,9 @@ if (isset($_SESSION['username'])) {
     $query = mysqli_query($conn, $sql);
     while ($rows = mysqli_fetch_assoc($query)) {
         $global_id = $rows['id'];
+        $global_city = $rows['city'];
+        $global_mobile = $rows['mobile'];
+        $global_gstin = $rows['gstin'];
         $global_name = $rows['name'];
         $global_email = $rows['email'];
         $global_user_role = $rows['role'];

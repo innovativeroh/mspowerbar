@@ -23,8 +23,10 @@
     if(isset($_POST['upload'])) {
     foreach($material_type as $index => $value) {
       $sql = "INSERT INTO `dm_data_addon`(`id`, `material_name`, `material_size`, `material_qty`, `dm_data_conn`, `connection`) VALUES (null,'$material_type[$index]','$material_rate[$index]','$material_qty[$index]','$data','$global_id')";
-      $query = mysqli_query($conn, $sql);
+      $query = mysqli_query($conn, $sql); 
     }
+    echo "<script>window.location = './dm-pdf.php?id=$data';</script>";
+    exit();
     }
     ?>
     <div class="az-content az-content-dashboard">

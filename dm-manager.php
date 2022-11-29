@@ -23,7 +23,7 @@
       $remarks = strip_tags(@$_POST['remarks']);
       $date = date("jS M Y");
       $time = date("h:i A");      
-      $sql = "INSERT INTO `dm_data`(`id`, `master`, `material`, `remarks`, `auth_connection`, `connection`, `date`, `time`, `delete`) VALUES (null,'$master','$materials','$remarks','','$global_id','$date','$time','0')";
+      $sql = "INSERT INTO `dm_data`(`id`, `master`, `material`, `remarks`, `auth_connection`, `connection`, `date`, `time`, `delete`) VALUES (null,'$master','$materials','$remarks','$assigned_no','$global_id','$date','$time','0')";
       $query = mysqli_query($conn, $sql);
       $last_id = mysqli_insert_id($conn);
       echo "<script>window.location = './dm-manager-data.php?id=$last_id';</script>";
