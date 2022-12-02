@@ -25,7 +25,8 @@
       $sql = "INSERT INTO `dm_data_addon`(`id`, `material_name`, `material_size`, `material_qty`, `dm_data_conn`, `connection`) VALUES (null,'$material_type[$index]','$material_rate[$index]','$material_qty[$index]','$data','$global_id')";
       $query = mysqli_query($conn, $sql); 
     }
-    echo "<script>window.location = './dm-pdf.php?id=$data';</script>";
+    echo "<script>window.open('./dm-pdf.php?id=$data', '_blank');</script>";
+    echo "<script>window.location = './dm.php';</script>";
     exit();
     }
     ?>
@@ -58,11 +59,11 @@
                     </div>
                     <div class="col-lg-4">
                         <label for="material_type">Rate</label>
-                        <input class="form-control" name="material_rate[]" id="material_rate" placeholder="Example* 100" type="text">
+                        <input class="form-control" name="material_rate[]" id="material_rate" placeholder="Example* 100" type="text" required>
                     </div>
                     <div class="col-lg-4">
                         <label for="material_type">Qty</label>  
-                        <input class="form-control" name="material_qty[]" id="material_qty" placeholder="Example* 10" type="number" min="0" value="0">
+                        <input class="form-control" name="material_qty[]" id="material_qty" placeholder="Example* 10" type="number" min="0" value="0" required>
                     </div>
                     </div>
                     <?php

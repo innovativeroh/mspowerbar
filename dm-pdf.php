@@ -20,6 +20,13 @@ while($row2 = mysqli_fetch_assoc($query2)) {
     $color = $row2['color'];
     $item = $row2['item_name'];
 }
+
+$sql3 = "SELECT * FROM `masters` WHERE id='$master'";
+$query3 = mysqli_query($conn, $sql3);
+while($row3 = mysqli_fetch_assoc($query3)) {
+    $master_name = $row3['name'];
+    $master_price = $row3['price'];
+}
 ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +71,7 @@ while($row2 = mysqli_fetch_assoc($query2)) {
         <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Time: </b> <?=$time?></p>
         <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Item Name:</b> <?=$item?></p>
         <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Colors:</b> <?=$color?></p>
+        <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Master:</b> <?=$master_name?></p>
     </div>
     </div>
     <?php
@@ -104,8 +112,11 @@ while($row2 = mysqli_fetch_assoc($query2)) {
             @$material_qtity += $row['material_qty'];
         }
         $total = $material_size * $material_qtity;
+
+        $master_total = $master_price * $material_qtity;
             ?>
         <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Total Quantity:</b> <?=$material_qtity;?></p>
+        <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Total Job Work Amount:</b> Rs. <?=$master_total?>/-</p>
         <p style='text-align: right; font-size: 14px; line-height: 4px;'><b style='font-weight: 600;'>Total Amount:</b> Rs. <?=$total;?>/-</p>
         </div>
 </div>
@@ -125,7 +136,9 @@ while($row2 = mysqli_fetch_assoc($query2)) {
     <center><p style='font-weight: 600; font-size: 12px;'>Powered By</p>
 <img src='./img/brand-logo-crop.png' width='80px;'></center>
 </div>
-<center><button id="basic" href="#nada" style='background: #111; border: 1px solid #111; padding: 10px; color: #fff; font-size: 14px; border-radius: 10px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;'>Print or Save PDF</button></center>
+<center>
+<button id="basic" href="#nada" style='background: #111; border: 1px solid #111; padding: 10px; color: #fff; font-size: 14px; border-radius: 10px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;'>Print or Save PDF</button>
+<button id="basic" href="#nada" onclick='window.close();' style='background: #111; border: 1px solid #111; padding: 10px; color: #fff; font-size: 14px; border-radius: 10px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;'>Close</button></center>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://jasonday.github.io/printThis/printThis.js"></script>
 <script>

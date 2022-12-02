@@ -44,19 +44,26 @@
               $material = $rows['material'];
               $remarks = $rows['remarks'];
               $date = $rows['time']." ".$rows['date'];
+              
+              $sql2 = "SELECT * FROM `masters` WHERE `id`='$master'";
+              $query2 = mysqli_query($conn, $sql2);
+              $count = mysqli_num_rows($query2);
+              while($rowss = mysqli_fetch_assoc($query2)) {
+                $master_name = $rowss['name'];
+              }
               echo '
               <tr>
               <th scope="row">'.$id.'</th>
-              <td>'.$master.'</td>
+              <td>'.@$master_name.'</td>
               <td>'.$material.'</td>
               <td>'.$remarks.'</td>
               <td>'.$date.'</td>
               <td>';
               ?>
-<div class="dropdown">
+          <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
             <div class="dropdown-menu tx-13" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" target="_blank">View PDF</a>
+            <a class="dropdown-item" href="dm-pdf.php?id=<?=$id?>" target="_blank">View PDF</a>
             <a class="dropdown-item" href="edit-design.php?id=<?=$id?>">Edit</a>
             <a class="dropdown-item" href="delete-dm.php?id=<?=$id?>">Delete</a>
             </div>

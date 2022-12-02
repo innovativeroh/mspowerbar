@@ -73,8 +73,9 @@
                     $sql = "SELECT * FROM `masters` WHERE `connection`='$global_id'";
                     $query = mysqli_query($conn, $sql);
                     while($row = mysqli_fetch_assoc($query)) {
+                      $master_id = $row['id'];
                       $master_name = $row['name'];
-                    echo "<option name='$master_name'>$master_name</option>";
+                    echo "<option value='$master_id' name='$master_name'>$master_name</option>";
                     }
                   ?>
               </select>

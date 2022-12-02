@@ -22,6 +22,14 @@
             <span>Home</span>
             <span>Design Numbers</span>
           </div>
+          <?php
+          $success = @$_GET['success'];
+            if($success == '1') {
+              echo '<div class="alert alert-success" role="alert">
+              Design Number Has Been Added <a href="design-numbers.php" class="link-success"><b>View All</b></a>
+            </div>';
+            }
+          ?>
           <h3 class="az-content-title">Add Design Number</h3>
           <?php
             $sql = "SELECT * FROM `design_numbers` WHERE `connection`='$global_id' AND `delete`='0' ORDER by `id` DESC LIMIT 1";
@@ -80,11 +88,12 @@ Date : $date";
                 $sql = "INSERT INTO `design_numbers`(`id`, `color`, `from`, `to`, `assigned_number`, `item_name`, `item_image` , `qr_code`, `rate`, `connection`, `insert_date`, `delete`) VALUES (null,'$color_implode','$from[$index]','$to[$index]','$decided_number','$item_name','$image_name','$filename','$rate[$index]','$global_id','$date','0')";
                 $query = mysqli_query($conn, $sql);
               }
-              
+              echo "<script>window.location = '?success=1';</script>";
             }
+            
             }
+            
             }
-
             ?>
               <form action="add-design-number.php" method="POST" enctype='multipart/form-data'>
               <div class="row row-sm">
